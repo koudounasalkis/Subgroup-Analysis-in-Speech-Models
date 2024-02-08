@@ -1,19 +1,19 @@
 # Towards Comprehensive Subgroup Performance Analysis in Speech Models
-This repo contains the code for "Towards Comprehensive Subgroup Performance Analysis in Speech Models", submitted to the IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP) journal.
+This repo contains the code for "Towards Comprehensive Subgroup Performance Analysis in Speech Models," accepted at the IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP) journal.
 
 In this repository, you will find the code to replicate our experiments.  
 
 We do not include the datasets ([FSC](https://fluent.ai/fluent-speech-commands-a-dataset-for-spoken-language-understanding-research/), [SLURP](https://github.com/pswietojanski/slurp), [IEMOCAP](https://sail.usc.edu/iemocap/), [LibriSpeech](https://www.openslr.org/12)) used in the paper as they are publicly available and downloadable from the official sites (except for [IEMOCAP](https://sail.usc.edu/iemocap/), for which a request must be made).
 
 ## Get Started
-Our code was tested on Python 3.10.8. To make it work, you will need a working environment with the libraries listed in `requirements.txt`.
+Our code was tested on Python 3.10.8. To make it work, you will need a working environment with the libraries listed in `requirements.txt.`
 
 ## Running the Experiments
-To reproduce the paper's experiments, use the `divexplorer_analysis_{name_dataset}.ipynb` notebook, which leverages the files already computed in `data_precomputed/{name_dataset}`. 
+To reproduce the paper's experiments, use the `divexplorer_analysis_{name_dataset}.ipynb` notebook, which leverages the files already computed in `data_precomputed/{name_dataset}.` 
 
 ## Our Methodology
 
-In this work we study the presence of bias in spoken language understanding (SLU) model performance on data subgroups. We automatically identify those combinations
+In this work, we study the presence of bias in spoken language understanding (SLU) model performance on data subgroups. We automatically identify those combinations
 of metadata values yielding maximal:
 - **Intra-model performance gap**, i.e., a significant difference in performance between the overall dataset and the data subgroup. We quantify it by means of an established
 *divergence* metric, or
@@ -25,7 +25,7 @@ end-users in choosing the best SLU model to use on a proprietary dataset.
 We present a novel methodology for automating the characterization and comparison of metadata-generated subgroups. The number of subgroups grows exponentially with the number of metadata attributes. Hence, it becomes infeasible to enumerate and evaluate them using naive approaches. 
 Our proposed approach capitalizes on the [recent advancements in model bias analysis](https://ieeexplore.ieee.org/abstract/document/10095284) to address this challenge. The critical insight lies in recognizing that although the number of subgroups is exponential, the number of subgroups that exceed a certain coverage threshold (e.g.,
 containing at least 0.1% of the dataset) is generally manageable. 
-These subgroups, called *frequent subgroups*, possess practical and statistical significance. On top of the generated patterns, we shortlist the subgroups with maximal **intra- and cross-model gaps**. They respectively provide end-users with explainable representations of problematic subgroups within a given SLU task and across different (but comparable) SLU models.
+These subgroups - called *frequent subgroups* - possess practical and statistical significance. On top of the generated patterns, we shortlist the subgroups with maximal **intra- and cross-model gaps**. They respectively provide end-users with explainable representations of problematic subgroups within a given SLU task and across different (but comparable) SLU models.
 
 
 
@@ -35,7 +35,7 @@ In this work, we aim to answer the following Research Questions (RQs).
 
 **RQ1. How can we automatically identify and describe the most problematic subgroups for a given combination of SLU model, dataset, and task?**
 
-We can apply our methodology to detect subgroups that *diverge* for the average behavior. The following table considers for example the **wav2vec 2.0 base model** and all datasets in analysis (FSC, SLURP, IEMOCAP, LibriSpeech), highlighting the most negatively and positively divergent subgroups for each dataset, with their corresponding $f$ and $\Delta f$ values, training and test supports.
+We can apply our methodology to detect subgroups that *diverge* for the average behavior. The following table considers, for example, the **wav2vec 2.0 base model** and all datasets in analysis (FSC, SLURP, IEMOCAP, LibriSpeech), highlighting the most negatively and positively divergent subgroups for each dataset, with their corresponding $f$ and $\Delta f$ values, training and test supports.
 
 | **$Dataset$** | **$Subgroups$** | **$Sup_{train}$** | **$Sup_{test}$** | **$f$** | **$\Delta_f$** | **$t_{value}$** | 
 |:-----------:|:---------------------------------------------------:|:-------------:|:------------:|:-------:|:------:|:------:|
@@ -46,7 +46,7 @@ We can apply our methodology to detect subgroups that *diverge* for the average 
 
 **RQ2. What is the effect of the model size on subgroup performance? Does The large the better hold true?**
 
-Larger machine learning models are generally more accurate than smaller one. We demonstrate that increasing the size of a model does not always lead to better performance on a given dataset, as there may be subgroups within the data for which the model’s performance decreases. 
+Larger machine learning models are generally more accurate than smaller ones. We demonstrate that increasing the size of a model does not always lead to better performance on a given dataset, as there may be subgroups within the data for which the model’s performance decreases. 
 The following table summarizes the performance gap when scaling up the model size of **wav2vec 2.0** for each considered dataset, highlighting the subgroups with the highest performance improvement and the highest decrease.
 
 | **$Dataset$** | **$Subgroups$** | **$Sup$** | **$gain f$** | **$w2v2-b \, f$** | **$w2v2-l \, f$** | **$t_{value}$** |
@@ -65,7 +65,7 @@ We can also see the gap contribution when scaling up wav2vec 2.0, considering al
 **RQ3. Is the performance bias on specific subgroups independent of the model architecture?**
 
 We adopt the proposed methodology to evaluate the performance enhancement obtained by replacing a particular model architecture with a different one. Specifically, we evaluate the performance gaps obtained by replacing the **wav2vec 2.0 base** model with the **HuBERT base** model. We show that even when the overall performance increases when one model is adopted instead of another, there can be subgroups where it decreases. 
-The following table outlines the performance gap when changing the models’ architecture highlighting the subgroups with the highest performance improvement and the highest decrease
+The following table outlines the performance gap when changing the models’ architecture, highlighting the subgroups with the highest performance improvement and the highest decrease
 
 | **$Dataset$** | **$Subgroups$** | **$Sup$** | **$gain f$** | **$w2v2-b \, f$** | **$hub-b \, f$** | **$t_{value}$** |
 |:-----------:|:-----------------:|:---------:|:------------:|:--------------:|:--------------:|:--------------:|
