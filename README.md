@@ -1,5 +1,8 @@
 # Towards Comprehensive Subgroup Performance Analysis in Speech Models
-This repo contains the code for "Towards Comprehensive Subgroup Performance Analysis in Speech Models," accepted at the IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP) journal.
+
+[![official paper](https://img.shields.io/badge/journal-TASLP%202024-b31b1b.svg)](https://ieeexplore.ieee.org/abstract/document/10430478)
+
+This repo contains the code for [**"Towards Comprehensive Subgroup Performance Analysis in Speech Models,"**](https://ieeexplore.ieee.org/abstract/document/10430478) accepted at the IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP) journal.
 
 In this repository, you will find the code to replicate our experiments.  
 
